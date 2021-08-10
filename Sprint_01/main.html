@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint01</title>
+    <style type="text/css">
+        body {        
+            min-height: 96vh;
+            background: linear-gradient(140deg, #d8ecfd, #FFF7E4);
+        }
+        h1 {
+            text-align: center;
+        }
+        .main_div {
+            border: 1px solid black;
+            border-radius: 10px;
+            min-height: 200px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            width: 200px;
+            margin: 0px auto;
+            margin-top: 3%;
+            padding: 25px;
+        }
+        .matrix {
+            text-align: center;
+        }
+        .matrix_node {
+            width: 60px;
+            margin-top: 10px;
+            padding: 2px;
+        }
+        input[type='file'] {
+            color: transparent;
+            outline: none;
+        }
+        select {
+            margin-bottom: 20px;
+            padding: 3px;
+            border-radius: 15px 0px 0px 15px;
+        }
+        input {
+            margin-bottom: 20px;
+            padding: 3px;
+        }
+        button {
+            margin-bottom: 20px;
+            padding: 3px;
+        }
+        #result_table {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        #check {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        #check_results {
+            text-align: center;
+        }
+    </style>
+    <script src="./check.js"></script>
+</head>
+<body>
+    <h1 style="color: yellow;">Решение СЛАУ</h1>
+    <div class="main_div">
+        <span></span>
+        <select id="select_method">
+            <option value="" disabled selected>Выберете метод:</option>
+            <option>Крамера</option>
+            <option>Гаусса</option>
+            <option>Зейделя</option>
+            <option>Гаусса-Жордана</option>
+            <option>Якоби</option>
+        </select>
+        <br>
+        <select id="select_matrix" onclick="create_matrix()">
+            <option value="" disabled selected>Размерность матрица:</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </select>
+        <br>
+        <input type="file" id="file">
+        <br>
+        <button onclick="readFile(document.getElementById('file'))">Считать</button>
+        <br>
+        <input type="submit" value="Вычислить" onclick="choose_method()">
+    </div>
+    <br>
+    <div class="matrix"></div>
+    <br>
+    <div id="result_table"></div>
+    <input type="submit" value="Сравнить корни" onclick="check()" id="check">
+    <div id="check_results"></div>
+    <script src="./choose_method.js"></script>
+    <script src="./create_matrix.js"></script>
+    <script src="./cramer.js"></script>
+    <script src="./gauss.js"></script>
+    <script src="./seidel.js"></script>
+    <script src="./gauss-jordan.js"></script>
+    <script src="./jacobi.js"></script>
+    <script src="./read_from_file.js"></script>
+    <script src="./check.js"></script>
+</body>
+</html>
